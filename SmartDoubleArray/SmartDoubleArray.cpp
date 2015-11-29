@@ -22,7 +22,10 @@ namespace MyArray
     //add element to the end
     void SmartDoubleArray::add(int value)
     {
-        if (size == capacity)
+		#ifdef _DEBUG
+			std::cout << "Method : add" << std::endl;
+		#endif
+		if (size == capacity)
         {
             capacity *= 2;
             int* tempArray = new int[capacity];
@@ -41,6 +44,9 @@ namespace MyArray
     // insert element after 'index'
     void SmartDoubleArray::insert(int value, int index)
     {
+		#ifdef _DEBUG
+			std::cout << "Method : insert" << std::endl;
+		#endif
         if (!indexCheck(index))
             return;
         
@@ -82,7 +88,10 @@ namespace MyArray
 
     void SmartDoubleArray::remove(int index)
     {
-        if (!indexCheck(index))
+		#ifdef _DEBUG
+			std::cout << "Method : remove" << std::endl;
+		#endif
+		if (!indexCheck(index))
             return;
         size--;
 
@@ -112,7 +121,10 @@ namespace MyArray
     // get count of some value in array
     int SmartDoubleArray::count(int value) const
     {
-        int count = 0;
+		#ifdef _DEBUG
+			std::cout << "Method : cout" << std::endl;
+		#endif
+		int count = 0;
         for (int i = 0; i < size; i++)
         {
             if (chiefPointer[i] == value)
@@ -127,7 +139,10 @@ namespace MyArray
     //given index
     int SmartDoubleArray::findNext(int value, int index) const
     {
-        if (!indexCheck(index))
+		#ifdef _DEBUG
+			std::cout << "Method : findNext" << std::endl;
+		#endif
+		if (!indexCheck(index))
             return -1;
         for (int i = index; i < size; i++)
         {
@@ -142,20 +157,29 @@ namespace MyArray
     //get size array
     int SmartDoubleArray::getSize() const
     {
-        return size;
+		#ifdef _DEBUG
+			std::cout << "Method : getSize" << std::endl;
+		#endif
+		return size;
     }
 
     //get size array
     int SmartDoubleArray::getCapacity() const
     {
-        return capacity;
+		#ifdef _DEBUG
+			std::cout << "Method : getCapacity" << std::endl;
+		#endif
+		return capacity;
     }
 
 
     // Method for get the value of the index
     int SmartDoubleArray::getValueOfIndex(int index) const
     {
-        if (!indexCheck(index))
+		#ifdef _DEBUG
+			std::cout << "Method : getValueOfIndex" << std::endl;
+		#endif        
+		if (!indexCheck(index))
             return 0;
         return chiefPointer[index];
     }
@@ -163,23 +187,35 @@ namespace MyArray
     //get element by index
     int SmartDoubleArray::getAt(int index) const
     {
-        return getValueOfIndex(index);
+		#ifdef _DEBUG
+			std::cout << "Method : getAt" << std::endl;
+		#endif
+		return getValueOfIndex(index);
     }
 
     //Override []
     int SmartDoubleArray::operator[](int index)
     {
-        return getValueOfIndex(index);
+		#ifdef _DEBUG
+			std::cout << "Method : operator[]" << std::endl;
+		#endif         
+		return getValueOfIndex(index);
     }
 
     bool SmartDoubleArray::indexCheck(int index) const
     {
-         return !(index >= size || index < 0);
+		#ifdef _DEBUG
+			std::cout << "Method : indexCheck" << std::endl;
+		#endif 
+		return !(index >= size || index < 0);
     }
 
     std::ostream& operator<<(std::ostream& os, const SmartDoubleArray& chiefPointer)
     {
-        for (int i = 0; i < chiefPointer.size; i++)
+		#ifdef _DEBUG
+			std::cout << "Method : operator<<" << std::endl;
+		#endif 		
+		for (int i = 0; i < chiefPointer.size; i++)
         {
              os << chiefPointer.getValueOfIndex(i)<<" ";
         }

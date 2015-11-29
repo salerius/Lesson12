@@ -1,3 +1,6 @@
+#ifndef SMART_DOUBLE_ARRAY
+#define SMART_DOUBLE_ARRAY
+
 #pragma once
 #include <iostream>
 
@@ -33,4 +36,6 @@ namespace MyArray
     
     };
 
-}
+};
+
+#endif;
